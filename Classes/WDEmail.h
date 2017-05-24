@@ -16,8 +16,8 @@
 
 @interface WDEmail : NSObject
 
-@property (nonatomic, assign) int expectedAttachments;
-@property (nonatomic, assign) int completeAttachments;
+@property (nonatomic, assign) NSUInteger expectedAttachments;
+@property (nonatomic, assign) NSUInteger completeAttachments;
 @property (nonatomic) MFMailComposeViewController *picker;
 
 @end

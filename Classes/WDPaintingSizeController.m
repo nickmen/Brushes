@@ -254,7 +254,7 @@ const NSUInteger WDMaximumDimension = 2048;
     int     ix = 0;
     BOOL    buildMiniCanvases = self.miniCanvases.count == 0 ? YES : NO;
     
-    for (NSDictionary *dict in self.configuration) {
+    for (int count = 0 ; count < self.configuration.count ; count++) {
         size = [self sizeForPage:ix];
         
         float percentage = [self canvasScalePercentage];

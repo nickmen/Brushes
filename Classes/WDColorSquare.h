@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
-#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES1/glext.h>
 
 @class WDColor;

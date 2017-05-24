@@ -1893,7 +1893,6 @@
 				ORGANIZATIONNAME = "Taptrix, Inc.";
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = CQ46W8F62S;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
