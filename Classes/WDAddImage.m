@@ -34,7 +34,7 @@
 {
     [super updateWithWDDecoder:decoder deep:deep];
     self.imageHash = [decoder decodeStringForKey:@"imageHash"];
-    self.layerIndex = [decoder decodeIntegerForKey:@"index" defaultTo:NSUIntegerMax];
+    self.layerIndex = [decoder decodeUnsignedIntegerForKey:@"index" defaultTo:NSUIntegerMax];
     self.layerUUID = [decoder decodeStringForKey:@"layer"];
     self.mergeDown = [decoder decodeBooleanForKey:@"mergeDown"];
     self.transform = [decoder decodeTransformForKey:@"transform"];
@@ -44,7 +44,7 @@
 {
     [super encodeWithWDCoder:coder deep:deep];
     [coder encodeString:self.imageHash forKey:@"imageHash"];
-    [coder encodeInteger:(int)self.layerIndex forKey:@"index"];
+    [coder encodeUnsignedInteger:self.layerIndex forKey:@"index"];
     [coder encodeString:self.layerUUID forKey:@"layer"];
     [coder encodeBoolean:self.mergeDown forKey:@"mergeDown"];
     [coder encodeTransform:self.transform forKey:@"transform"];

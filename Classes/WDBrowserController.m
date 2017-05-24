@@ -73,7 +73,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", @"Select")
-                                                                 style:UIBarButtonItemStyleBordered
+                                                                 style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(startEditing:)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -723,7 +723,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     WDEmail *email = aNotification.object;
     if (++email.completeAttachments == email.expectedAttachments) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController presentModalViewController:email.picker animated:YES];
+            [self.navigationController presentViewController:email.picker animated:YES completion:nil];
         });
     }
 }
@@ -1092,7 +1092,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 
 - (BOOL) ignoreOrientationChange:(UIInterfaceOrientation)inOrientation
 {
-    BOOL inPortrait = UIInterfaceOrientationIsPortrait(self.interfaceOrientation);
+    BOOL inPortrait = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
     BOOL goingToPortrait = UIInterfaceOrientationIsPortrait(inOrientation);
     
     return (inPortrait == goingToPortrait) ? YES : NO;

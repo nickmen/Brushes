@@ -42,6 +42,9 @@
 - (int) decodeIntegerForKey:(NSString *)key;
 - (int) decodeIntegerForKey:(NSString *)key defaultTo:(int)deft;
 
+- (NSUInteger) decodeUnsignedIntegerForKey:(NSString *)key;
+- (NSUInteger) decodeUnsignedIntegerForKey:(NSString *)key defaultTo:(NSUInteger)deft;
+
 - (id) decodeObjectForKey:(NSString *)key;
 - (id) decodeObjectForKey:(NSString *)key defaultTo:(id)deft;
 

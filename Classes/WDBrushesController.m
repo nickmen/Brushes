@@ -50,10 +50,12 @@
 }
 
 - (void) done:(id)sender
-{   
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
-        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
-    }
+{
+//TODO:check
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
+//        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
+//    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) configureNavBar
@@ -226,7 +228,7 @@
 
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         [self.navigationController setNavigationBarHidden:YES];
-        [self configureForOrientation:self.interfaceOrientation];
+        [self configureForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     }
     
     [self selectActiveBrush];
@@ -359,7 +361,7 @@
     [doubleTap addTarget:self action:@selector(done:)];
     [brushTable addGestureRecognizer:doubleTap];
     
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 
     self.navigationItem.leftBarButtonItem.enabled = [[WDActiveState sharedInstance] canDeleteBrush];
     

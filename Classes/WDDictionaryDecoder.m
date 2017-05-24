@@ -39,13 +39,14 @@
 
 - (void) dealloc
 {
-    if (dispatchQueue_) {
-        dispatch_release(dispatchQueue_);
-    }
-    
-    if (dispatchGroup_) {
-        dispatch_release(dispatchGroup_);
-    }
+// Probably not necessary
+//    if (dispatchQueue_) {
+//        dispatch_release(dispatchQueue_);
+//    }
+//    
+//    if (dispatchGroup_) {
+//        dispatch_release(dispatchGroup_);
+//    }
 }
 
 - (WDCodingProgress *) progress
@@ -166,6 +167,17 @@
 {
     id value = [self objectForKey:key];
     return value && [value respondsToSelector:@selector(intValue)] ? [value intValue] : deft;
+}
+
+- (NSUInteger) decodeUnsignedIntegerForKey:(NSString *)key
+{
+    return [self decodeUnsignedIntegerForKey:key defaultTo:0];
+}
+
+- (NSUInteger) decodeUnsignedIntegerForKey:(NSString *)key defaultTo:(NSUInteger)deft
+{
+    id value = [self objectForKey:key];
+    return value && [value respondsToSelector:@selector(unsignedIntegerValue)] ? [value unsignedIntegerValue] : deft;
 }
 
 - (id) decodeObjectForKey:(NSString *)key

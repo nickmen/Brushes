@@ -42,7 +42,7 @@
 
 - (void) cancel:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (WDImageButton *) imageButtonWithImage:(NSString *)image tag:(int)tag
@@ -131,7 +131,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 }
 
 - (void)viewDidUnload
@@ -143,14 +143,14 @@
 {
     if (!email_) {
         email_ = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Email", @"Email")
-                                                  style:UIBarButtonItemStyleBordered
+                                                  style:UIBarButtonItemStylePlain
                                                  target:self
                                                  action:@selector(email:)];
     }
     
     if (!dropbox_) {
         dropbox_ = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send to Dropbox", @"Send to Dropbox")
-                                                    style:UIBarButtonItemStyleBordered
+                                                    style:UIBarButtonItemStylePlain
                                                    target:self
                                                    action:@selector(sendToDropbox:)];
     }
@@ -164,7 +164,8 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     self.navigationController.toolbarHidden = NO;
-    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:0.0f];
+//TODO:
+//    [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:0.0f];
 }
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

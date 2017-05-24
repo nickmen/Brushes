@@ -299,6 +299,11 @@
     [json_ appendFormat:@"%d", number];
 }
 
+- (void) encodeUnsignedInteger:(NSUInteger)number forKey:(NSString *)key {
+    [self encodeKey:key];
+    [json_ appendFormat:@"%zd", number];
+}
+
 - (void) encodeFloat:(float)number forKey:(NSString *)key 
 {
     [self encodeKey:key];

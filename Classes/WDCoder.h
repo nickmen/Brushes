@@ -30,6 +30,7 @@
 - (void) encodeDictionary:(NSDictionary *)dict forKey:(NSString *)key;
 - (void) encodeFloat:(float)number forKey:(NSString *)key;
 - (void) encodeInteger:(int)number forKey:(NSString *)key;
+- (void) encodeUnsignedInteger:(NSUInteger)number forKey:(NSString *)key;
 - (void) encodeObject:(id<WDCoding>)object forKey:(NSString *)key deep:(BOOL)deep;
 - (void) encodePoint:(CGPoint)point forKey:(NSString *)key;
 - (void) encodeRect:(CGRect)rect forKey:(NSString *)key;

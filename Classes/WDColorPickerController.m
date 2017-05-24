@@ -41,9 +41,12 @@
 
 - (void) doubleTapped:(id)sender
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
-        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
-    }
+//TODO:check
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
+//        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
+//    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void) takeColorFromComparator:(id)sender
@@ -170,7 +173,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
     
     // set up color comparator
     self.colorComparator.target = self;
@@ -194,7 +197,7 @@
     
     if (WDDeviceIsPhone()) {
         self.bottomBar.items = [self bottomBarItems];
-        [self.bottomBar setOrientation:self.interfaceOrientation];
+        [self.bottomBar setOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
         
         CGRect matrixFrame = WDDeviceIs4InchPhone() ? self.view.frame : CGRectInset(self.view.frame, 10, 10);
         matrix = [[WDMatrix alloc] initWithFrame:matrixFrame];
@@ -215,8 +218,9 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = YES;
-    
-    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:0];
+
+//TODO:
+//    [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:0];
 }
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -244,7 +248,7 @@
 
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    [self.bottomBar setOrientation:self.interfaceOrientation];
+    [self.bottomBar setOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -258,7 +262,7 @@
         return;
     }
     
-    [self.bottomBar setOrientation:self.interfaceOrientation];
+    [self.bottomBar setOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
 
 - (BOOL) prefersStatusBarHidden

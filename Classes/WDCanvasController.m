@@ -80,8 +80,8 @@
         return nil;
     }
     
-    [self setWantsFullScreenLayout:YES];
-    
+    [self setExtendedLayoutIncludesOpaqueBars:YES];
+
     return self;
 }
 
@@ -436,7 +436,7 @@
     
     UIViewController *controller = [[UIViewController alloc] init];
     controller.view = actionMenu_;
-    controller.contentSizeForViewInPopover = actionMenu_.frame.size;
+    controller.preferredContentSize = actionMenu_.frame.size;
     
     visibleMenu_ = actionMenu_;
     [self validateVisibleMenuItems];
@@ -508,7 +508,7 @@
     
     UIViewController *controller = [[UIViewController alloc] init];
     controller.view = gearMenu_;
-    controller.contentSizeForViewInPopover = gearMenu_.frame.size;
+    controller.preferredContentSize = gearMenu_.frame.size;
     
     visibleMenu_ = gearMenu_;
     [self validateVisibleMenuItems];
@@ -524,18 +524,19 @@
     [facebookSheet setInitialText:NSLocalizedString(@"Check out my Brushes painting! http://brushesapp.com",
                                                     @"Check out my Brushes painting! http://brushesapp.com")];
     
-    [self presentModalViewController:facebookSheet animated:YES];
+    [self presentViewController:facebookSheet animated:YES completion:nil];
 }
 
 - (void) tweetPainting:(id)sender
 {
-    TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-    
-    [tweetSheet addImage:[canvas_.painting imageForCurrentState]];
-    [tweetSheet setInitialText:NSLocalizedString(@"Check out my Brushes #painting! @brushesapp",
-                                                 @"Check out my Brushes #painting! @brushesapp")];
-    
-    [self presentModalViewController:tweetSheet animated:YES];
+//TODO:とりあえずはずす
+//    TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+//    
+//    [tweetSheet addImage:[canvas_.painting imageForCurrentState]];
+//    [tweetSheet setInitialText:NSLocalizedString(@"Check out my Brushes #painting! @brushesapp",
+//                                                 @"Check out my Brushes #painting! @brushesapp")];
+//    
+//    [self presentViewController:tweetSheet animated:YES completion:nil];
 }
 
 - (void) validateMenuItem:(WDMenuItem *)item
@@ -812,7 +813,7 @@
 - (BOOL) phoneLandscapeMode
 {
     if ([self runningOnPhone]) {
-        return UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
+        return UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
     }
     
     return NO;
@@ -871,10 +872,13 @@
         
         NSString *label = [NSString stringWithFormat:@"%lu", (unsigned long)index];
         
+        NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+        style.lineBreakMode = NSLineBreakByClipping;
+        style.alignment = NSTextAlignmentCenter;
         [label drawInRect:CGRectOffset(layerBox, 0, 1)
-                 withFont:[UIFont boldSystemFontOfSize:13]
-            lineBreakMode:UILineBreakModeClip
-                alignment:UITextAlignmentCenter];
+           withAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:13],
+                            NSParagraphStyleAttributeName : style
+                            }];
     }
 
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
@@ -1429,7 +1433,7 @@
     }
         
     [self undoStatusDidChange:nil];
-    [self configureForOrientation:self.interfaceOrientation];
+    [self configureForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     [self enableItems];
 }
 
