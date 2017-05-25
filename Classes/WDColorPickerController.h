@@ -36,7 +36,7 @@
 
 @property (nonatomic, weak) WDBar *bottomBar;
 
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) id delegate;//no use
 
 - (IBAction)dismiss:(id)sender;
 - (void) setInitialColor:(WDColor *)color;

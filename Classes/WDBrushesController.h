@@ -21,7 +21,7 @@
 
 @property (nonatomic) IBOutlet UITableView *brushTable;
 @property (nonatomic) IBOutlet WDBrushCell *brushCell;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) id delegate;    //no use
 @property (nonatomic, weak) WDBar *topBar;
 @property (nonatomic, weak) WDBar *bottomBar;
 @property (nonatomic) WDBarSlider *brushSlider;

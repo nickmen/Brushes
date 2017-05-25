@@ -51,10 +51,6 @@
 
 - (void) done:(id)sender
 {
-//TODO:check
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
-//        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
-//    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -42,7 +42,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *opacityLabel;
 @property (nonatomic, weak) IBOutlet WDBlendModePicker *blendModePicker;
 @property (nonatomic, readonly) NSMutableSet *dirtyThumbnails;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) id delegate;//no use
 @property (nonatomic, weak) WDBar *topBar;
 @property (nonatomic, weak) WDBar *bottomBar;
 @property (nonatomic) WDActionSheet *blendModeSheet;

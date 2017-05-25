@@ -41,10 +41,6 @@
 
 - (void) doubleTapped:(id)sender
 {
-//TODO:check
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(dismissViewController:)]) {
-//        [self.delegate performSelector:@selector(dismissViewController:) withObject:self];
-//    }
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
@@ -168,6 +164,30 @@
     return self.bottomBar;
 }
 
+- (void)changeLayoutForOrientation:(UIInterfaceOrientation)orientation {
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        if (WDDeviceIs4InchPhone()) {
+            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 5, 20), 0, -5);
+        } else {
+            matrix.frame = self.view.frame;
+        }
+        
+        matrix.columns = 2;
+        matrix.rows = 1;
+    } else {
+        if (WDDeviceIs4InchPhone()) {
+            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 5, 20), 0, -15);
+        } else {
+            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 0, 5), 0, -5);
+        }
+        
+        matrix.columns = 1;
+        matrix.rows = 2;
+    }
+    
+    [self.bottomBar setOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -217,38 +237,17 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 
-//TODO:
-//    [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:0];
+    [self changeLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+
 }
 
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        if (WDDeviceIs4InchPhone()) {
-            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 5, 20), 0, -5);
-        } else {
-            matrix.frame = self.view.frame;
-        }
-        
-        matrix.columns = 2;
-        matrix.rows = 1;
-    } else {
-        if (WDDeviceIs4InchPhone()) {
-            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 5, 20), 0, -15);
-        } else {
-            matrix.frame = CGRectOffset(CGRectInset(self.view.frame, 0, 5), 0, -5);
-        }
-        
-        matrix.columns = 1;
-        matrix.rows = 2;
-    }
-}
-
-- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.bottomBar setOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [self changeLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

@@ -90,7 +90,19 @@
     [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:@"WDPreferredExportFormat"];
     [self enableToolbarItems];
 }
-                    
+
+- (void)changeLayoutForOrientation:(UIInterfaceOrientation)orientation {
+    WDMatrix *matrix = (WDMatrix *) self.view;
+    
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        matrix.columns = 4;
+        matrix.rows = 1;
+    } else {
+        matrix.columns = 2;
+        matrix.rows = 2;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -163,22 +175,16 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = NO;
-//TODO:
-//    [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:0.0f];
+
+    [self changeLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
 }
 
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    WDMatrix *matrix = (WDMatrix *) self.view;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        matrix.columns = 4;
-        matrix.rows = 1;
-    } else {
-        matrix.columns = 2;
-        matrix.rows = 2;
-    }
+    [self changeLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
