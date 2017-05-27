@@ -747,6 +747,7 @@
     layerTable_.frame = frame;
 }
 
+//TODO:DEPRECATED
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if ([self runningOnPhone]) {

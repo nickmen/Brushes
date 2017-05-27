@@ -1106,6 +1106,13 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     centeredIndex = [gridView approximateIndexOfCenter];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    //TODO:
+    
+}
+
+//TODO:DEPRECATED
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if ([self ignoreOrientationChange:toInterfaceOrientation]) {
@@ -1123,6 +1130,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     [self.view insertSubview:snapshotBeforeRotation aboveSubview:gridView];
 }
 
+//TODO:DEPRECATED
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if (!snapshotBeforeRotation) {

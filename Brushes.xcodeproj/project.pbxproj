@@ -405,6 +405,7 @@
 		6BF9986815A67C7100AFBB3A /* merge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF9986615A67C7000AFBB3A /* merge@2x.png */; };
 		6BF9986F15A776EC00AFBB3A /* WDCellSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9986E15A776EC00AFBB3A /* WDCellSelectionView.m */; };
 		6BFA802C1249CEDB00D1749C /* WDLayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA802B1249CEDB00D1749C /* WDLayerCell.m */; };
+		74D91FFB1ED91D1B00F237DB /* launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D91FFA1ED91D1B00F237DB /* launch.storyboard */; };
 		C01FCF5008A9545400542486 /* WDSynchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A9545400542485 /* WDSynchronizer.m */; };
 		C01FCF5008A954540054248D /* WDAddLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A954540054248C /* WDAddLayer.m */; };
 		C01FCF5008A9545400542490 /* WDDeleteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A954540054248F /* WDDeleteLayer.m */; };
@@ -972,6 +973,7 @@
 		6BF9986E15A776EC00AFBB3A /* WDCellSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDCellSelectionView.m; sourceTree = "<group>"; };
 		6BFA802A1249CEDB00D1749C /* WDLayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLayerCell.h; sourceTree = "<group>"; };
 		6BFA802B1249CEDB00D1749C /* WDLayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLayerCell.m; sourceTree = "<group>"; };
+		74D91FFA1ED91D1B00F237DB /* launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = launch.storyboard; path = Storyboard/launch.storyboard; sourceTree = "<group>"; };
 		C01FCF5008A9545400542484 /* WDSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSynchronizer.h; sourceTree = "<group>"; };
 		C01FCF5008A9545400542485 /* WDSynchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSynchronizer.m; sourceTree = "<group>"; };
 		C01FCF5008A9545400542487 /* WDDocumentChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDDocumentChange.h; sourceTree = "<group>"; };
@@ -1074,6 +1076,7 @@
 				6B616773137B429200BEC0BA /* Samples */,
 				6B1E107315ED6D41006128D8 /* Samples HD */,
 				6B984AF7131623FA007FB48F /* PLists */,
+				74D91FF91ED91CF100F237DB /* Storyboard */,
 				6B984AF4131623F1007FB48F /* XIB */,
 				6BCD52C0123FFFF3002FCB27 /* Images */,
 				6B1E108815EFEB57006128D8 /* Settings.bundle */,
@@ -1813,6 +1816,14 @@
 			name = App;
 			sourceTree = "<group>";
 		};
+		74D91FF91ED91CF100F237DB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				74D91FFA1ED91D1B00F237DB /* launch.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 		C01FCF5008A9545400542494 /* Document Updates */ = {
 			isa = PBXGroup;
 			children = (
@@ -2005,6 +2016,7 @@
 				6B8E558C181F2A0F0022F573 /* AppIcon29x29.png in Resources */,
 				6B9394D91452B89800305670 /* blend_button.png in Resources */,
 				6BA16EE31457A488002A5702 /* style.png in Resources */,
+				74D91FFB1ED91D1B00F237DB /* launch.storyboard in Resources */,
 				6B377A06147B8D830078147A /* brighter_small_checkers.png in Resources */,
 				6BD3735314A01F3400C4C941 /* blitWithMask.fsh in Resources */,
 				6B82B92A14E49646002442CE /* unlock_thumb.png in Resources */,
@@ -2379,6 +2391,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2413,6 +2427,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2481,6 +2497,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2553,6 +2571,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

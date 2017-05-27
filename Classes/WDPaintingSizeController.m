@@ -465,6 +465,13 @@ const NSUInteger WDMaximumDimension = 2048;
     return frame;
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    //TODO:
+    
+}
+
+//TODO:DEPRECATED
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     rotatingBackground = [[UIView alloc] initWithFrame:scrollView.frame];
@@ -482,6 +489,7 @@ const NSUInteger WDMaximumDimension = 2048;
     scrollView.delegate = nil;
 }
 
+//TODO:DEPRECATED
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     scrollView.hidden = YES;

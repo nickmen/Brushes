@@ -110,6 +110,13 @@
     return YES;
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    //TODO:
+    
+}
+
+//TODO:DEPRECATED
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     wasPlayingBeforeRotation = (replay && replay.isPlaying);
@@ -128,6 +135,7 @@
     [layer_ setImage:[self layerImage]];
 }
 
+//TODO:DEPRECATED
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [self hidePopovers];

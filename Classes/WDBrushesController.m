@@ -397,6 +397,7 @@
 	return YES;
 }
 
+//TODO:DEPRECATED
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [self configureForOrientation:toInterfaceOrientation];
