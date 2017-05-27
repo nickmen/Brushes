@@ -572,7 +572,8 @@ NSString *WDGestureEndedNotification = @"WDGestureEnded";
     mat4f_LoadCGAffineTransform(effectiveProj, canvasTransform_);
     mat4f_MultiplyMat4f(proj, effectiveProj, final);
     
-    [self drawWhiteBackground:final];
+//TOOD:描いた時にbrushの空白部分が黒くなるのをとりあえず回避
+//    [self drawWhiteBackground:final];
 
     // ask the painter to render
     [self.painting blit:final];
