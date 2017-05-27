@@ -411,7 +411,10 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     [[WDPaintingManager sharedInstance] createNewPaintingWithSize:size afterSave:^(WDDocument *document) {
         // set the document before setting the editing flag
         canvasController.document = document;
-        canvasController.editing = YES;
+        //呼ばれるタイミングかもしれないけど、作成後ロードしっぱなしになるのでopenする
+        [document openWithCompletionHandler:^(BOOL success) {
+            canvasController.editing = YES;
+        }];
     }];
 
     [gridView scrollToBottom];
