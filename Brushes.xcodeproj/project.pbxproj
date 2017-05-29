@@ -188,8 +188,6 @@
 		6B40CE89181FD36600004FB2 /* LayerCell~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE75181FD36600004FB2 /* LayerCell~iphone.xib */; };
 		6B40CE8A181FD36600004FB2 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE76181FD36600004FB2 /* Layers.xib */; };
 		6B40CE8B181FD36600004FB2 /* Layers~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE77181FD36600004FB2 /* Layers~iphone.xib */; };
-		6B40CE8C181FD36600004FB2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE78181FD36600004FB2 /* MainWindow.xib */; };
-		6B40CE8D181FD36600004FB2 /* MainWindow~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE79181FD36600004FB2 /* MainWindow~iphone.xib */; };
 		6B40CE8E181FD36600004FB2 /* PropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE7A181FD36600004FB2 /* PropertyCell.xib */; };
 		6B40CE8F181FD36600004FB2 /* PropertyCell~iOS7.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE7B181FD36600004FB2 /* PropertyCell~iOS7.xib */; };
 		6B40CE90181FD36600004FB2 /* SizeChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B40CE7C181FD36600004FB2 /* SizeChooser.xib */; };
@@ -406,6 +404,7 @@
 		6BF9986F15A776EC00AFBB3A /* WDCellSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9986E15A776EC00AFBB3A /* WDCellSelectionView.m */; };
 		6BFA802C1249CEDB00D1749C /* WDLayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA802B1249CEDB00D1749C /* WDLayerCell.m */; };
 		74D91FFB1ED91D1B00F237DB /* launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D91FFA1ED91D1B00F237DB /* launch.storyboard */; };
+		74D920001EDC7F6E00F237DB /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D91FFF1EDC7F6E00F237DB /* Main.xib */; };
 		C01FCF5008A9545400542486 /* WDSynchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A9545400542485 /* WDSynchronizer.m */; };
 		C01FCF5008A954540054248D /* WDAddLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A954540054248C /* WDAddLayer.m */; };
 		C01FCF5008A9545400542490 /* WDDeleteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FCF5008A954540054248F /* WDDeleteLayer.m */; };
@@ -691,8 +690,6 @@
 		6B40CE75181FD36600004FB2 /* LayerCell~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LayerCell~iphone.xib"; path = "XIB/LayerCell~iphone.xib"; sourceTree = "<group>"; };
 		6B40CE76181FD36600004FB2 /* Layers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Layers.xib; path = XIB/Layers.xib; sourceTree = "<group>"; };
 		6B40CE77181FD36600004FB2 /* Layers~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Layers~iphone.xib"; path = "XIB/Layers~iphone.xib"; sourceTree = "<group>"; };
-		6B40CE78181FD36600004FB2 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = XIB/MainWindow.xib; sourceTree = "<group>"; };
-		6B40CE79181FD36600004FB2 /* MainWindow~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow~iphone.xib"; path = "XIB/MainWindow~iphone.xib"; sourceTree = "<group>"; };
 		6B40CE7A181FD36600004FB2 /* PropertyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PropertyCell.xib; path = XIB/PropertyCell.xib; sourceTree = "<group>"; };
 		6B40CE7B181FD36600004FB2 /* PropertyCell~iOS7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PropertyCell~iOS7.xib"; path = "XIB/PropertyCell~iOS7.xib"; sourceTree = "<group>"; };
 		6B40CE7C181FD36600004FB2 /* SizeChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SizeChooser.xib; path = XIB/SizeChooser.xib; sourceTree = "<group>"; };
@@ -974,6 +971,7 @@
 		6BFA802A1249CEDB00D1749C /* WDLayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLayerCell.h; sourceTree = "<group>"; };
 		6BFA802B1249CEDB00D1749C /* WDLayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLayerCell.m; sourceTree = "<group>"; };
 		74D91FFA1ED91D1B00F237DB /* launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = launch.storyboard; path = Storyboard/launch.storyboard; sourceTree = "<group>"; };
+		74D91FFF1EDC7F6E00F237DB /* Main.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Main.xib; path = XIB/Main.xib; sourceTree = "<group>"; };
 		C01FCF5008A9545400542484 /* WDSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSynchronizer.h; sourceTree = "<group>"; };
 		C01FCF5008A9545400542485 /* WDSynchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSynchronizer.m; sourceTree = "<group>"; };
 		C01FCF5008A9545400542487 /* WDDocumentChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDDocumentChange.h; sourceTree = "<group>"; };
@@ -1550,12 +1548,11 @@
 				6B40CE75181FD36600004FB2 /* LayerCell~iphone.xib */,
 				6B40CE76181FD36600004FB2 /* Layers.xib */,
 				6B40CE77181FD36600004FB2 /* Layers~iphone.xib */,
-				6B40CE78181FD36600004FB2 /* MainWindow.xib */,
-				6B40CE79181FD36600004FB2 /* MainWindow~iphone.xib */,
 				6B40CE7A181FD36600004FB2 /* PropertyCell.xib */,
 				6B40CE7B181FD36600004FB2 /* PropertyCell~iOS7.xib */,
 				6B40CE7C181FD36600004FB2 /* SizeChooser.xib */,
 				6B40CE7D181FD36600004FB2 /* Stylus.xib */,
+				74D91FFF1EDC7F6E00F237DB /* Main.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -2049,14 +2046,13 @@
 				6BD595AB15252B280014A798 /* dropbox_icon_generic@2x.png in Resources */,
 				6BE58FCF181F33720002AE0E /* AppIcon29x29-Classic.png in Resources */,
 				6BD595AE15252B280014A798 /* dropbox_icon_unsupported@2x.png in Resources */,
+				74D920001EDC7F6E00F237DB /* Main.xib in Resources */,
 				6B08CE10182192E0001AFC3C /* action-modern@2x.png in Resources */,
 				6B08CE171821A69F001AFC3C /* actionLandscape-modern.png in Resources */,
 				6B40CDC2181FD0BA00004FB2 /* brush_landscape@2x.png in Resources */,
-				6B40CE8C181FD36600004FB2 /* MainWindow.xib in Resources */,
 				6BD595B8152BAD200014A798 /* swatch_add.png in Resources */,
 				6BE9BA36153272D60085EBA8 /* dismiss.png in Resources */,
 				6BE9BA37153272D60085EBA8 /* dismiss@2x.png in Resources */,
-				6B40CE8D181FD36600004FB2 /* MainWindow~iphone.xib in Resources */,
 				6BE9BA3E15329E910085EBA8 /* merge~iPhone.png in Resources */,
 				6B08CDFD182188C3001AFC3C /* stylus_selected.png in Resources */,
 				6BE9BA3F15329E910085EBA8 /* merge@2x~iPhone.png in Resources */,

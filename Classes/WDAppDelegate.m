@@ -58,6 +58,7 @@ NSString *WDDropboxWasUnlinkedNotification = @"WDDropboxWasUnlinkedNotification"
     browserController = [[WDBrowserController alloc] initWithNibName:nil bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:browserController];
     
+    window.frame = [UIScreen mainScreen].bounds;
     // set a good background color for the superview so that orientation changes don't look hideous
     window.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
     
