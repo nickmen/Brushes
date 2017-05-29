@@ -61,6 +61,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
                                                                                 action:@selector(showDropboxImportPanel:)];
     
     UIBarButtonItem *cameraItem = nil;
+    //TODO:PermissionCamera
     if (ALLOW_CAMERA_IMPORT && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         cameraItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
                                                                    target:self
@@ -330,6 +331,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     NSString *title = NSLocalizedString(@"Could Not Open Painting", @"Could Not Open Painting");
     NSString *format = NSLocalizedString(@"There was a problem opening “%@”.", @"There was a problem opening “%@”.");
                               
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:[NSString stringWithFormat:format, document.displayName]
                                                        delegate:self
@@ -633,6 +635,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     NSString *deleteButtonTitle = NSLocalizedString(@"Delete", @"Title of Delete button");
     NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", @"Title of Cancel button");
 
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:message
                                                        delegate:self
@@ -970,6 +973,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 {
     NSString *format = NSLocalizedString(@"Brushes could not import “%@”. It may be corrupt or in a format that's not supported.",
                                          @"Brushes could not import “%@”. It may be corrupt or in a format that's not supported.");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Import Problem", @"Import Problem")
                                                         message:[NSString stringWithFormat:format, filename]
                                                        delegate:nil
@@ -982,6 +986,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 {
     NSString *format = NSLocalizedString(@"Brushes could not import “%@”. The resolution is too high for this device.",
                                          @"Brushes could not import “%@”. The resolution is too high for this device.");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Import Problem", @"Import Problem")
                                                         message:[NSString stringWithFormat:format, filename]
                                                        delegate:nil
@@ -994,6 +999,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 {
     NSString *format = NSLocalizedString(@"Brushes could not import “%@”. There is not enough available memory.",
                                          @"Brushes could not import “%@”. There is not enough available memory.");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Import Problem", @"Import Problem")
                                                         message:[NSString stringWithFormat:format, filename]
                                                        delegate:nil
@@ -1054,6 +1060,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 
     NSString *format = NSLocalizedString(@"There was a problem downloading “%@”. Check your network connection and try again.",
                                          @"There was a problem downloading“%@”. Check your network connection and try again.");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Download Problem", @"Download Problem")
                                                         message:[NSString stringWithFormat:format, [downloadPath lastPathComponent]]
                                                        delegate:nil
@@ -1070,6 +1077,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
     
     NSString *format = NSLocalizedString(@"There was a problem uploading “%@”. Check your network connection and try again.",
                                          @"There was a problem uploading“%@”. Check your network connection and try again.");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Upload Problem", @"Upload Problem")
                                                         message:[NSString stringWithFormat:format, [srcPath lastPathComponent]]
                                                        delegate:nil
@@ -1192,6 +1200,7 @@ static NSString *WDAttachmentNotification = @"WDAttachmentNotification";
 
 - (void) importFromCamera:(id)sender
 {
+    //TODO:PermissionCamera
 	UIImagePickerController *controller = nil;
     
     if (![self.currentPopoverViewController isKindOfClass:[UIImagePickerController class]]) {

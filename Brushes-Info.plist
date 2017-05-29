@@ -96,8 +96,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Import Photos</string>
 	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
+	<string>Main</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Add to Photo</string>
 	<key>UILaunchStoryboardName</key>
 	<string>launch</string>
 	<key>UIStatusBarHidden</key>

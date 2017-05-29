@@ -11,6 +11,7 @@
 
 #import <Twitter/Twitter.h>
 #import <MessageUI/MessageUI.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "UIImage+Resize.h"
 #import "UIImage+Additions.h"
@@ -206,6 +207,30 @@
 
 - (void) showPhotoBrowser:(id)sender
 {
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    switch (status) {
+        case AVAuthorizationStatusNotDetermined:{
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) { // 使用が許可された場合
+                    [self openImagePicker:sender];
+                } else {       // 使用が不許可になった場合
+                    NSLog(@"Please use after allowing the use of the camera.\n Can add photos from PhotoLibrary.");
+                }
+            }];
+            break;
+        }
+        case AVAuthorizationStatusRestricted:       // 制限されている
+        case AVAuthorizationStatusDenied:           // 不許可になっている
+            NSLog(@"Please use after allowing the use of the camera.\n Can add photos from PhotoLibrary.");
+            break;
+        case AVAuthorizationStatusAuthorized:       // プライバシー設定でカメラ使用が許可されている
+            [self openImagePicker:sender];
+            break;
+    }
+    
+}
+
+- (void)openImagePicker:(id)sender {
     if ([self shouldDismissPopoverForClassController:[UIImagePickerController class] insideNavController:NO]) {
         [self hidePopovers];
         return;
@@ -217,6 +242,7 @@
     picker.delegate = self;
     
     [self showController:picker fromBarButtonItem:sender animated:YES];
+    
 }
 
 #pragma mark -
@@ -698,7 +724,9 @@
 - (void) showController:(UIViewController *)controller fromBarButtonItem:(UIBarButtonItem *)barButton animated:(BOOL)animated
 {
     if (self.runningOnPhone) {
-        [self presentViewController:controller animated:animated completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:controller animated:animated completion:nil];
+        });
     } else {
         [self runPopoverWithController:controller from:barButton];
     }
@@ -1388,6 +1416,7 @@
     NSString *title = NSLocalizedString(@"Replay Error", @"Replay Error");
     NSString *message = NSLocalizedString(@"There was a problem replaying this painting. It may have been created with a newer version of Brushes. Check the App Store for an update.", @"There was a problem replaying this painting. It may have been created with a newer version of Brushes. Check the App Store for an update.");
     
+    //TODO:convertToUIAlertController
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:self

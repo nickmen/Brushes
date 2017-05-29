@@ -101,6 +101,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     NSString *name = [[WDPaintingManager sharedInstance] installPaintingFromURL:url error:&error];
 
     if (!name) {
+        //TODO:convertToUIAlertController
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Broken Painting", @"Broken Painting")
                                                             message:NSLocalizedString(@"Brushes could not open the requested painting.", @"Brushes could not open the requested painting.")
                                                            delegate:nil
@@ -158,6 +159,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     NSString *unlinkButtonTitle = NSLocalizedString(@"Unlink", @"Title of Unlink button");
     NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", @"Title of Cancel button");
     
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:message
                                                        delegate:self

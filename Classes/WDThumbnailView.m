@@ -151,6 +151,7 @@
     }
     
     if (errorMessage) {
+        //TODO:convertToUIAlertController
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
         

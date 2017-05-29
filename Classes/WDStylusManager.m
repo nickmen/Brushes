@@ -225,6 +225,7 @@ NSString *WDBlueToothStateChangedNotification = @"WDBlueToothStateChangedNotific
 {
     newlyDiscoveredPen = pen;
     NSString *format = NSLocalizedString(@"Would you like to start using %@?", @"Would you like to start using %@?");
+    //TODO:convertToUIAlertController
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"New Pen Found", @"New Pen Found")
                                                         message:[NSString stringWithFormat:format, name]
                                                        delegate:self
